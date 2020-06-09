@@ -1,0 +1,9 @@
+﻿  func.cpp
+A:\pg\serv\serv\func.cpp(17,20): warning C4018: <: несоответствие типов со знаком и без знака
+A:\pg\serv\serv\func.cpp(425,20): warning C4018: <: несоответствие типов со знаком и без знака
+A:\pg\serv\serv\func.cpp(432,20): warning C4018: <: несоответствие типов со знаком и без знака
+  serv.cpp
+  Создание кода...
+A:\pg\serv\serv\serv.cpp(48): warning C4715: sockID: значение возвращается не при всех путях выполнения
+A:\pg\serv\serv\func.cpp(35): warning C4715: database::operator[]: значение возвращается не при всех путях выполнения
+  serv.vcxproj -> A:\pg\serv\Debug\serv.exe

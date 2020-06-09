@@ -1,0 +1,3 @@
+﻿  user.cpp
+A:\pg\serv\user\user.cpp(36,20): warning C4018: <: несоответствие типов со знаком и без знака
+  user.vcxproj -> A:\pg\serv\Debug\user.exe

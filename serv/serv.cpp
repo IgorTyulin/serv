@@ -12,7 +12,7 @@
 #pragma comment(lib, "ws2_32.lib")
 #define maxusers 50
 
-//Файля для записи данных пользователей и их сообщений
+//Файл для записи данных пользователей и их сообщений
 char* usersFile = (char*)"users.txt";
 char* msgsFile = (char*)"messages.txt";
 
@@ -217,7 +217,6 @@ void* ClientStart(void* param)
 		while (1)
 		{
 			//получить сообщение от клиента
-			//если !NEWMSG прочитать сообщение и отправить всем клиентам !NEWMSG, а потом 10 последних сообщений
 			char* req = RecieveMessage(client);
 			if (isEqualStr(req, NewMsg))
 			{
@@ -256,7 +255,7 @@ void* ClientStart(void* param)
 		int interlocutorID = atoi(interid);
 		dialogueWith[clientID] = interlocutorID;
 
-		// вывести 10 последних сообщений с ним
+		//вывести 10 последних сообщений с ним
 		int lastMesSize = 0;
 		lastMessages = GetTenLastDiaMessages(data, clientID, interlocutorID, lastMesSize);
 		if (lastMesSize != 0)
@@ -272,15 +271,10 @@ void* ClientStart(void* param)
 			SendMessageToClient(client, lastmes);
 			pthread_mutex_unlock(&mutex);
 		}
-		//Если чат пустой, вывести, что чат пуст
-		else
-		{
-			SendMessageToClient(client, NewMsg);
-			SendMessageToClient(client, (char*)"The dialogue is clear\nEnter your first message!\n\0");
-		}
+		
 		while (1)
 		{
-			//  если !NEWMSG прочитать сообщение -> добавить в базу -> отправить 10 последних сообщений
+			//если !NEWMSG прочитать сообщение -> добавить в базу -> отправить 10 последних сообщений
 			char* req = RecieveMessage(client);
 			if (isEqualStr(req, NewMsg))
 			{
@@ -319,7 +313,7 @@ void* ClientStart(void* param)
 				SendMessageToClient(client, lastmes);
 				pthread_mutex_unlock(&mutex);
 			}
-			// Если !CHAT вернуться в общий чат
+			//Если !CHAT вернуться в общий чат
 			else if (isEqualStr(req, Chat))
 			{
 				dialogueWith[clientID] = -1;
